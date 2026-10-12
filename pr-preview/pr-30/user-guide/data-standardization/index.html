@@ -827,24 +827,37 @@
 <h2 id="animal-data">Animal Data</h2>
 <p>COMING SOON</p>
 <h3 id="example-1-audio-video-and-pose-estimation-sleap-in-nwb">Example 1 - Audio, Video, and pose estimation (SLEAP) in NWB</h3>
-<p>Let's suppose the original data is a single animal in cage with one camera and two microphones:</p>
+<!-- 
+Let's suppose the original data is a single animal in cage with one camera and two microphones:
+
 <div class="highlight"><pre><span></span><code>myExperimentSession/
 </code></pre></div>
-<p>Each of the audio and video files in the folder1 in myExperiment hold data that is continuous in time with the files of folder2, which is continuous with folder3 and so and and so forth. Altogether, folders 1 - 5 constitute a single recording session. This means that all the data should be contained inside a single NWB file.</p>
-<p>To make it easier for a secondary user to parse the data, then, we will concatenate all video files together, all audio files together, and all pose data together within the single NWB file. </p>
-<p>The resulting NWB structure then looks like:</p>
+
+
+Each of the audio and video files in the folder1 in myExperiment hold data that is continuous in time with the files of folder2, which is continuous with folder3 and so and and so forth. Altogether, folders 1 - 5 constitute a single recording session. This means that all the data should be contained inside a single NWB file.
+
+To make it easier for a secondary user to parse the data, then, we will concatenate all video files together, all audio files together, and all pose data together within the single NWB file. 
+
+The resulting NWB structure then looks like:
+
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
+ -->
+
 <h3 id="example-2-audio-and-video-in-bids-and-pose-estimation-sleap-in-nwb">Example 2 - Audio and Video in BIDS, and pose estimation (SLEAP) in NWB</h3>
-<p>Now let's suppose we want to instead use BIDS, which would allow us to maintain the original way we had split up the experiment session. We can also keep the original data formats for audio and video files. </p>
-<p>The BIDS layout would look like: </p>
+<!-- Now let's suppose we want to instead use BIDS, which would allow us to maintain the original way we had split up the experiment session. We can also keep the original data formats for audio and video files. 
+
+The BIDS layout would look like: 
+
 <div class="highlight"><pre><span></span><code>dataset/
     sub-01/
         ses-01/
             beh/
                audio-part1.wav
-               video-part1.mp4
+               video-part1.mp4 
 </code></pre></div>
+-->
+
 <h3 id="example-3-multiple-animals-interacting">Example 3 - Multiple animals interacting</h3>
 <h2 id="de-identified-human-data">De-identified Human Data</h2>
 <p>COMING SOON</p>
@@ -854,16 +867,16 @@
 <p>This guide walks you through a suggested procedure on how to prepare your dataset for upload using the BIDS standard, with support for common data types such as intracranial recordings, audio/video, and behavioral data, and optional use of NWB files.</p>
 <p>This covers:</p>
 <!-- 1. [The relevant standards](#1-relevant-data-standards) -->
+
 <ol>
-<li><a href="#2-standardization-workflow">The standardization process and examples</a></li>
-<li><a href="#3-bids-standard">BIDS Standard</a></li>
-<li><a href="#bep047-motion-audio-video">Audio/Video</a></li>
-<li><a href="#5-validation-required-before-upload">Validation</a></li>
-<li><a href="#6-common-pitfalls">Common Pitfalls</a></li>
-<li><a href="#7-recommended-workflow-step-by-step">Recommended Workflow</a></li>
+<li><a href="#1-standardization-workflow">The standardization process and examples</a></li>
+<li><a href="#2-bids-standard">BIDS Standard</a></li>
+<li><a href="#3-audio--video-bep047">Audio/Video</a></li>
+<li><a href="#4-validation-required-before-upload">Validation</a></li>
+<li><a href="#5-common-pitfalls">Common Pitfalls</a></li>
+<li><a href="#6-recommended-workflow-step-by-step">Recommended Workflow</a></li>
 </ol>
-<!-- 
-## 1. Relevant Data Standards
+<!-- ## 1. Relevant Data Standards
 Before formatting your dataset, familiarize yourself with the standards supported by the BBQS Program and the EMBER archive (defined by the BBQS DCAIC Data Standards Working Group):
 
 <https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing>
@@ -934,11 +947,9 @@ Recommended for:
 
 NWB extensions can be found at [https://nwb-extensions.github.io](https://nwb-extensions.github.io)
 
-For multi-subject data (multiple subjects interacting, recorded at the same time), refer to [`ndx-multisubjects`](https://pypi.org/project/ndx-multisubjects/)
+For multi-subject data (multiple subjects interacting, recorded at the same time), refer to [`ndx-multisubjects`](https://pypi.org/project/ndx-multisubjects/) -->
 
-<!-- !!! warning "`ndx-multisubjects`"
-    This extension is undergoing development, and currently will not pass the validator. You can still use and upload this file to EMBER-DANDI using `--validation skip` argument until the validators are updated or this extension is incorporated into core NWB. -->
-<h2 id="_1"></h2>
+<hr />
 <h2 id="1-standardization-workflow">1. Standardization Workflow</h2>
 <p>Preparing your dataset involves three main steps:</p>
 <h3 id="step-1-organize-files-into-bids-structure">Step 1: Organize Files into BIDS Structure</h3>
@@ -959,8 +970,8 @@ For multi-subject data (multiple subjects interacting, recorded at the same time
 <li>Please see the instructions here: <a href="https://github.com/dandi/dandi-cli">https://github.com/dandi/dandi-cli</a></li>
 </ul>
 <hr />
-<h2 id="3-bids-standard">3. BIDS Standard</h2>
-<h3 id="31-folder-structure-core-bids-template">3.1. Folder Structure (Core BIDS Template)</h3>
+<h2 id="2-bids-standard">2. BIDS Standard</h2>
+<h3 id="21-folder-structure-core-bids-template">2.1. Folder Structure (Core BIDS Template)</h3>
 <p>BIDS specifies a particular set of folders and file names to organize data:</p>
 <p><a href="https://bids.neuroimaging.io/getting_started/folders_and_files/index.html">https://bids.neuroimaging.io/getting_started/folders_and_files/index.html</a></p>
 <p>More examples will be made available at:</p>
@@ -992,7 +1003,7 @@ For multi-subject data (multiple subjects interacting, recorded at the same time
 │   │       └── sub-01_ses-01_task-rest_audio.json
 </code></pre></div>
 <hr />
-<h3 id="32-bids-file-naming-rules">3.2. BIDS File Naming Rules</h3>
+<h3 id="22-bids-file-naming-rules">2.2. BIDS File Naming Rules</h3>
 <p>As you go, please be sure to refer to the BIDS examples: https://github.com/bids-standard/bids-examples </p>
 <p>BIDS uses structured filenames:</p>
 <div class="highlight"><pre><span></span><code>sub-&lt;participant&gt;[_ses-&lt;session&gt;]_task-&lt;task&gt;[_modality]
@@ -1004,8 +1015,8 @@ For multi-subject data (multiple subjects interacting, recorded at the same time
 <li><code>sub-01_ses-01_task-walk_video.mp4</code></li>
 </ul>
 <hr />
-<h3 id="33-required-metadata-files-for-bids">3.3. Required Metadata Files for BIDS</h3>
-<h4 id="331-dataset_descriptionjson">3.3.1 dataset_description.json</h4>
+<h3 id="23-required-metadata-files-for-bids">2.3. Required Metadata Files for BIDS</h3>
+<h4 id="231-dataset_descriptionjson">2.3.1 dataset_description.json</h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example Multimodal Dataset&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;BIDSVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.9.0&quot;</span><span class="p">,</span>
@@ -1013,12 +1024,12 @@ For multi-subject data (multiple subjects interacting, recorded at the same time
 <span class="w">  </span><span class="nt">&quot;Authors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;John Smith&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="332-participantstsv">3.3.2 participants.tsv</h4>
+<h4 id="232-participantstsv">2.3.2 participants.tsv</h4>
 <div class="highlight"><pre><span></span><code>participant_id  age sex
 sub-01  29  M
 sub-02  34  F
 </code></pre></div>
-<h4 id="333-ieeg-metadata">3.3.3 iEEG Metadata</h4>
+<h4 id="233-ieeg-metadata">2.3.3 iEEG Metadata</h4>
 <h5 id="channelstsv">channels.tsv</h5>
 <div class="highlight"><pre><span></span><code>name    type    units   sampling_frequency
 chan01  microelectrode  uV  30000
@@ -1027,12 +1038,12 @@ chan01  microelectrode  uV  30000
 <div class="highlight"><pre><span></span><code>name    x   y   z
 elec01  12.3    -45.2   30.1
 </code></pre></div>
-<h4 id="334-eventstsv">3.3.4 events.tsv</h4>
+<h4 id="234-eventstsv">2.3.4 events.tsv</h4>
 <div class="highlight"><pre><span></span><code>onset   duration    trial_type
 0.0 1.0 stimulus
 2.0 1.5 response
 </code></pre></div>
-<h4 id="335-sidecar-json-example">3.3.5 Sidecar JSON Example</h4>
+<h4 id="235-sidecar-json-example">2.3.5 Sidecar JSON Example</h4>
 <p>For an iEEG file:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;SamplingFrequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span>
@@ -1042,7 +1053,7 @@ elec01  12.3    -45.2   30.1
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="34-using-nwb-within-bids">3.4. Using NWB within BIDS</h3>
+<h3 id="24-using-nwb-within-bids">2.4. Using NWB within BIDS</h3>
 <p>If using NWB files within your project, they can be used to represent key time series data within BIDS, such as iEEG.</p>
 <h4 id="recommended-approach">Recommended approach</h4>
 <ul>
@@ -1061,7 +1072,7 @@ sub-01_ses-01_task-rest_ieeg.json
 <li>BIDS = dataset organization + metadata standard</li>
 </ul>
 <hr />
-<h2 id="4-audio-video-bep047">4. Audio / Video (BEP047)</h2>
+<h2 id="3-audio-video-bep047">3. Audio / Video (BEP047)</h2>
 <p>Supported formats:</p>
 <ul>
 <li>Video: <code>mp4</code>, <code>avi</code></li>
@@ -1081,7 +1092,7 @@ sub-01_ses-01_task-rest_ieeg.json
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="5-validation-required-before-upload">5. Validation (Required Before Upload)</h2>
+<h2 id="4-validation-required-before-upload">4. Validation (Required Before Upload)</h2>
 <p>Data uploaded to either EMBERVault or EMBER-DANDI must be properly standardized.</p>
 <!-- ***Can this section be updated to just use the dandi validator?*** -->
 <h3 id="command-line-validation-for-bids-recommended">Command Line Validation for BIDS (Recommended)</h3>
@@ -1116,7 +1127,7 @@ sub-01_ses-01_task-rest_ieeg.json
 <p>If you are using NWB files at all, you will need to validate those separately using the <a href="../uploading-data/#upload-data-to-your-dandiset">DANDI CLI</a></p>
 </div>
 <hr />
-<h2 id="6-common-pitfalls">6. Common Pitfalls</h2>
+<h2 id="5-common-pitfalls">5. Common Pitfalls</h2>
 <h3 id="incorrect-filenames">Incorrect filenames</h3>
 <ul>
 <li>Missing <code>task-</code> or <code>sub-</code> labels</li>
@@ -1135,7 +1146,7 @@ sub-01_ses-01_task-rest_ieeg.json
 </ul>
 <p>If your team is struggling, the EMBER archive team can help. Reach out at <code>help@emberarchive.org</code>.</p>
 <hr />
-<h2 id="7-recommended-workflow-step-by-step">7. Recommended Workflow (Step-by-Step)</h2>
+<h2 id="6-recommended-workflow-step-by-step">6. Recommended Workflow (Step-by-Step)</h2>
 <ol>
 <li>
 <p>Prepare raw data</p>
