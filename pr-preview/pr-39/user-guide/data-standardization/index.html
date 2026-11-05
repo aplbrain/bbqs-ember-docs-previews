@@ -856,7 +856,7 @@
 </code></pre></div>
 <p>Each of the audio and video files in the <code>split1</code> folder in myExperiment hold data that is continuous in time with the files of <code>split2</code>, which is continuous with <code>split3</code> and so and and so forth. Altogether, folders <code>split1</code> - <code>split5</code> constitute a single recording session. Best practices indicate that all the data should be contained inside a single NWB file.</p>
 <p>To make it easier for a secondary user to parse the data, then, we will concatenate all video files together, all audio files together, and all pose data together within the single NWB file. The concatenated video file will be referenced externally, and audio files will be represented with <code>ndx-sound</code>, an NWB extension for audio data. </p>
-<p>The resulting NWB structure then looks like:</p>
+<p>The resulting NWB structure for the single file then looks like:</p>
 <div class="highlight"><pre><span></span><code>myExperimentSession.nwb
 │
 ├── acquisition/
@@ -1049,7 +1049,7 @@ If there are multiple sessions, then each session's NWB file should be within th
         ├── RightAnkle_Y
         └── RightAnkle_Z
 </code></pre></div>
-<p>This data is transformed into appropriate containers within a single NWB file:</p>
+<p>This data is transformed into appropriate containers within a single NWB file, producing a standardized result that can be loaded with other tools and processing scripts:</p>
 <div class="highlight"><pre><span></span><code>sub-01_ses-01.nwb
 │
 ├── acquisition/
@@ -1112,7 +1112,7 @@ If there are multiple sessions, then each session's NWB file should be within th
         └── ElectrodeGroup(s)
 </code></pre></div>
 <h3 id="example-2-ieeg-and-motion-in-hybrid-bidsnwb">Example 2 - iEEG and motion in hybrid BIDS/NWB</h3>
-<p>Taking the same example of human data as in Example 1, the .mat data is now transformed into both NWB and BIDS within an overarching BIDS folder structure as shown below: </p>
+<p>Taking the same example of human data as in Example 1, the .mat data is now transformed into both NWB and BIDS within an overarching BIDS folder structure. This is a useful option as it allows easy access to individual modalities and organization of larger experiments. This is shown below: </p>
 <div class="highlight"><pre><span></span><code>myExperiment/
 │
 ├── dataset_description.json
